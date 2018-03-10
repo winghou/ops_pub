@@ -17,8 +17,9 @@ def php_publish(request):
     #t = loader.get_template("php_publish.html")
     #c = Context().update({'posts': posts})
     #return HttpResponse(t.render(c))
-    return render_to_response('php_publish.html', {'posts':posts,},
-                              RequestContext(request))
+    #return render_to_response('php_publish.html', {'posts':posts,})
+    #                        RequestContext(request))
+    return  render(request, 'php_publish.html', {'posts':posts,})
 
 def create_blogpost(request):
     if request.method == "POST":
@@ -27,4 +28,4 @@ def create_blogpost(request):
             body=request.POST.get('body'),
             timestamp=datetime.now(),
         ).save()
-    return HttpResponseRedirect('php_publish')
+    return HttpResponseRedirect('php_publish.html')

@@ -8,5 +8,10 @@ from dj_app import models
 class BlogPostAdmin(admin.ModelAdmin):
     list_display = ('title', 'timestamp')
 
-
 admin.site.register(models.BlogPost, BlogPostAdmin)
+
+
+class JiraPostAdmin(admin.ModelAdmin):
+    list_display = ('ppid', 'jira_url', 'timestamp')
+
+admin.site.register(models.JiraPost, JiraPostAdmin)

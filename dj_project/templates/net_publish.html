@@ -1,0 +1,21 @@
+<form action="/djapp/create/" method="post">
+    {% csrf_token %}
+    Title:
+    <input type="text" name="title"><br>
+    Body:
+    <textarea name="body" rows="3" cols="60"></textarea><br>
+    <input type="submit">
+</form>
+<hr>
+
+<form action="/djapp/getinfo" method="post">
+    Jira-PPID：
+    <input type="text" name="PPID">
+</form>
+
+{% for post in posts %}
+    <h2>{{ post.title }}</h2>
+    <p>{{ post.timestamp }}</p>
+    <p>{{ post.body }}</p>
+    <hr>
+{% endfor %}
